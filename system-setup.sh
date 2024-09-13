@@ -71,15 +71,15 @@ if ! sudo apt install -y feh; then
 fi
 
 # Install AMD graphics drivers and necessary firmware for Asus rx 580
-echo "Installing AMD graphics drivers and firmware..."
-if ! sudo apt install -y mesa-utils xserver-xorg-video-amdgpu firmware-amd-graphics; then
-  echo "Failed to install AMD graphics drivers and firmware"
-  exit 1
-fi
+# echo "Installing AMD graphics drivers and firmware..."
+# if ! sudo apt install -y mesa-utils xserver-xorg-video-amdgpu firmware-amd-graphics; then
+  # echo "Failed to install AMD graphics drivers and firmware"
+  # exit 1
+# fi
 
 # Install Monitoring Tool
 echo "Installing monitoring tools..."
-if ! sudo apt install -y lm-sensor sysstat htop; then
+if ! sudo apt install -y sysstat htop; then
   echo "Failed to install monitoring tools"
   exit 1
 fi
@@ -147,17 +147,17 @@ if ! sudo apt install -y lightdm lightdm-gtk-greeter; then
   exit 1
 fi
 # Enable LightDM to start on boot
-echo "Enabling lightdm to start on boot..."
-if ! sudo systemctl enable lightdm; then
-  echo "Failed to enable lightdm"
-  exit 1
-fi
+# echo "Enabling lightdm to start on boot..."
+# if ! sudo systemctl enable lightdm; then
+  # echo "Failed to enable lightdm"
+  # exit 1
+# fi
 # Set lightdm as the default display manager
-echo "Setting lightdm as the default display manager..."
-if ! echo "/usr/sbin/lightdm" | sudo tee /etc/X11/default-display-manager; then
-  echo "Failed to set default display manager"
-  exit 1
-fi
+# echo "Setting lightdm as the default display manager..."
+# if ! echo "/usr/sbin/lightdm" | sudo tee /etc/X11/default-display-manager; then
+  # echo "Failed to set default display manager"
+  # exit 1
+# fi
 
 # Install Desktop Applications
 echo "Installing desktop applications (rofi, polybar)..."
@@ -250,33 +250,33 @@ echo "Installations completed successfully."
 ############################### FONTS #####################################
 
 # Define source and destination directories
-SOURCE_DIR="$HOME/.dotfiles/ScarletRice1/fonts"
-DEST_DIR="$HOME/.local/share/fonts"
+# SOURCE_DIR="$HOME/.dotfiles/ScarletRice1/fonts"
+# DEST_DIR="$HOME/.local/share/fonts"
 
 # Check if source directory exists
-if [ ! -d "$SOURCE_DIR" ]; then
-  echo "Source directory $SOURCE_DIR does not exist."
-  exit 1
-fi
+# if [ ! -d "$SOURCE_DIR" ]; then
+  # echo "Source directory $SOURCE_DIR does not exist."
+  # exit 1
+# fi
 
 # Create destination directory if it doesn't exist
-mkdir -p "$DEST_DIR"
+# mkdir -p "$DEST_DIR"
 
 # Copy fonts to destination directory, including subdirectories
-echo "Copying fonts from $SOURCE_DIR to $DEST_DIR..."
-if ! rsync -av "$SOURCE_DIR/" "$DEST_DIR/"; then
-  echo "Failed to copy fonts."
-  exit 1
-fi
+# echo "Copying fonts from $SOURCE_DIR to $DEST_DIR..."
+# if ! rsync -av "$SOURCE_DIR/" "$DEST_DIR/"; then
+  # echo "Failed to copy fonts."
+  # exit 1
+# fi
 
 # Update font cache
-echo "Updating font cache..."
-if ! fc-cache -fv; then
-  echo "Failed to update font cache."
-  exit 1
-fi
+# echo "Updating font cache..."
+# if ! fc-cache -fv; then
+  # echo "Failed to update font cache."
+  # exit 1
+# fi
 
-echo "Nerd Fonts installation completed successfully."
+# echo "Nerd Fonts installation completed successfully."
 
 
 ######################## CONFIGURATION FILES #################################
