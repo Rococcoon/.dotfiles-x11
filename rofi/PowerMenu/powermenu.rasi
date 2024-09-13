@@ -1,0 +1,125 @@
+/* Define the theme */
+/* @theme "powermenu"; */
+
+/*****----- Global Properties -----*****/
+* {
+    font:                        "JetBrains Mono Nerd Font 12";
+    background:                  #050e14;
+    background-alt:              #282A2E80;
+    foreground:                  #C5C8C6;
+    selected:                    #F07489;
+    active:                      #6E77FF;
+    urgent:                      #8E3596;
+}
+
+/* Window settings */
+configuration {
+    font: "Mononoki 12"; /* Customize with your preferred font */
+    show-icons: true;    /* Show icons if you use icon fonts */
+}
+
+/*****----- Main Window -----*****/
+window {
+    /* properties for window widget */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    background-color:            @background;
+    width:                       700px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    /* properties for all widgets */
+    enabled:                     true;
+    border-radius:               20px;
+    cursor:                      "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "prompt", "listview" ];
+}
+
+/*****----- prompt -----*****/
+prompt {
+    background-image:            url("~/Pictures/Wallpapers/rose-colden.png", width);
+    background-color:            @background;
+    text-color:                  @selected;
+    font:                        "Mononoki Bold 30";
+    padding:                     0 21%; 
+    vertical-align:              0.5;
+    expand:                      true;
+}
+
+/*****----- listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       7;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    spacing:                     10px;
+    margin:                      10px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     4px 20px;
+    border-radius:               100%;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+element normal.normal {
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+element normal.urgent {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element normal.active {
+    background-color:            @active;
+    text-color:                  @background-alt;
+}
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @background;
+}
+element selected.urgent {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element selected.active {
+    background-color:            @urgent;
+    text-color:                  @foreground;
+}
+element-icon {
+    background-color:            transparent;
+    text-color:                  @foreground;
+    size:                        32px;
+    cursor:                      inherit;
+}
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
