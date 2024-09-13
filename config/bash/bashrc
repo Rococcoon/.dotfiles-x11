@@ -21,7 +21,7 @@ export EDITOR=vim
 PS1="${FOREGROUND}\u@\h${RESET}:${FOREGROUND}\w${RESET}${SCARLET}\$ ${RESET}"
 
 # Alliases
-alias nvim='~/Applications/nvim.appimage'
+alias nvim='/usr/local/bin/nvim'
 
 # If not running interactively, don't do anything
 case $- in
