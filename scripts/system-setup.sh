@@ -140,25 +140,6 @@ if ! sudo apt install -y i3 i3status i3lock dmenu; then
   exit 1
 fi
 
-# Install Desktop Manager (lightdm)
-echo "Installing desktop manager (lightdm)..."
-if ! sudo apt install -y lightdm lightdm-gtk-greeter; then
-  echo "Failed to install lightdm and greeter"
-  exit 1
-fi
-# Enable LightDM to start on boot
-echo "Enabling lightdm to start on boot..."
-if ! sudo systemctl enable lightdm; then
-  echo "Failed to enable lightdm"
-  exit 1
-fi
-# Set lightdm as the default display manager
-echo "Setting lightdm as the default display manager..."
-if ! echo "/usr/sbin/lightdm" | sudo tee /etc/X11/default-display-manager; then
-  echo "Failed to set default display manager"
-  exit 1
-fi
-
 # Install Desktop Applications
 echo "Installing desktop applications (rofi, polybar)..."
 if ! sudo apt install -y rofi polybar; then
@@ -283,6 +264,29 @@ print_message "Applying changes..."
 source ~/.bashrc
 
 print_message "Oh My Bash installation and configuration complete!"
+
+# Install Desktop Manager (sddm)
+# Install SDDM without Plasma dependencies
+echo "Installing SDDM with no extra Plasma components..."
+sudo apt install --no-install-recommends sddm -y
+echo "Installing necessary Qt modules for themes..."
+sudo apt install --no-install-recommends \
+  qml-module-qtquick-layouts qml-module-qtquick-controls2 libqt6svg6 -y
+echo "Setting SDDM as the default display manager..."
+sudo systemctl enable sddm
+# Install ctppuccin-mocha theme
+THEME_DIR="/usr/share/sddm/themes/catppuccin-mocha"
+if [ -d "$THEME_DIR" ]; then
+    echo "Configuring SDDM to use Catppuccin-Mocha theme..."
+    sudo sed -i 's/^Current=.*/Current=catppuccin-mocha/' /etc/sddm.conf
+else
+    echo \
+      "The Catppuccin-Mocha theme is not installed. You can install it manually."
+fi
+# Restart SDDM to apply changes
+echo "Restarting SDDM..."
+sudo systemctl restart sddm
+echo "SDDM installation and configuration is complete."
 
 ############################### FONTS #####################################
 
