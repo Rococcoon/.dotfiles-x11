@@ -1,0 +1,9 @@
+# Index file for Scarlet Rice theme
+# 
+# By: LBRM
+
+[Theme]
+Name=Scarlet Rice 01
+Comment=A custom GTK theme for LightDM Greeter
+GTKVersion=3
+IconTheme=Nerd-Font-Symbols

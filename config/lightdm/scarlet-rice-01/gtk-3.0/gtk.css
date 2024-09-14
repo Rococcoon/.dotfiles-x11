@@ -1,0 +1,16 @@
+/* GTK 3 CSS file */
+
+/* Apply Nerd Font Symbols for all icon-related styles */
+.icon {
+    font-family: "Symbols Nerd Font Mono";
+}
+
+/* Example for specific widget icons */
+.button {
+    -gtk-icon-name: "icon-name";
+}
+
+/* Example for a specific icon style */
+.button.icon-name {
+    background-image: url("path/to/icon.svg");
+}

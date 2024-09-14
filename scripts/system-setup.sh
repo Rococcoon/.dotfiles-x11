@@ -246,6 +246,43 @@ fi
 
 echo "Installations completed successfully."
 
+# Install oh my bash 
+# Function to print messages in different colors
+function print_message {
+    echo -e "\e[1;32m$1\e[0m"
+}
+# Step 1: Install Git if not already installed
+if ! command -v git &> /dev/null; then
+    print_message "Installing Git..."
+    sudo apt update && sudo apt install -y git
+else
+    print_message "Git is already installed."
+fi
+# Step 2: Install Oh My Bash
+print_message "Installing Oh My Bash..."
+bash -c \
+  "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+# Step 3: Set the theme to Agnoster in ~/.bashrc
+print_message "Setting Oh My Bash theme to Agnoster..."
+sed -i 's/^OSH_THEME=.*/OSH_THEME="agnoster"/' ~/.bashrc
+# Step 4: Add custom tab behavior to ~/.bashrc (cycling and menu-complete)
+print_message "Configuring custom tab behavior..."
+# Check if the settings already exist and append if they do not
+if ! grep -q 'set show-all-if-ambiguous on' ~/.bashrc; then
+    echo "# Enable tab cycling for multiple matches" >> ~/.bashrc
+    echo "bind 'set show-all-if-ambiguous on'" >> ~/.bashrc
+    echo "bind 'set completion-ignore-case on'" >> ~/.bashrc
+fi
+if ! grep -q 'TAB:menu-complete' ~/.bashrc; then
+    echo "# Enable menu completion for cycling through options with Tab" >> \
+      ~/.bashrc
+    echo "bind 'TAB:menu-complete'" >> ~/.bashrc
+fi
+# Step 5: Apply the changes by sourcing ~/.bashrc
+print_message "Applying changes..."
+source ~/.bashrc
+
+print_message "Oh My Bash installation and configuration complete!"
 
 ############################### FONTS #####################################
 

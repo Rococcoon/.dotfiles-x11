@@ -28,17 +28,6 @@ remove_existing ~/.tmux.conf
 remove_existing ~/.tmux
 remove_existing ~/.wallpapers
 
-# Create necessary directories
-# mkdir -p ~/.config/alacritty
-# mkdir -p ~/.config/i3
-# mkdir -p ~/.config/nvim
-# mkdir -p ~/.config/nvim.bak
-# mkdir -p ~/.config/picom
-# mkdir -p ~/.config/polybar
-# mkdir -p ~/.config/ranger
-# mkdir -p ~/.config/rofi
-# mkdir -p ~/.tmux/plugins
-
 # Configuration Files Symlinking
 
 # Alacritty
