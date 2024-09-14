@@ -147,17 +147,17 @@ if ! sudo apt install -y lightdm lightdm-gtk-greeter; then
   exit 1
 fi
 # Enable LightDM to start on boot
-# echo "Enabling lightdm to start on boot..."
-# if ! sudo systemctl enable lightdm; then
-  # echo "Failed to enable lightdm"
-  # exit 1
-# fi
+echo "Enabling lightdm to start on boot..."
+if ! sudo systemctl enable lightdm; then
+  echo "Failed to enable lightdm"
+  exit 1
+fi
 # Set lightdm as the default display manager
-# echo "Setting lightdm as the default display manager..."
-# if ! echo "/usr/sbin/lightdm" | sudo tee /etc/X11/default-display-manager; then
-  # echo "Failed to set default display manager"
-  # exit 1
-# fi
+echo "Setting lightdm as the default display manager..."
+if ! echo "/usr/sbin/lightdm" | sudo tee /etc/X11/default-display-manager; then
+  echo "Failed to set default display manager"
+  exit 1
+fi
 
 # Install Desktop Applications
 echo "Installing desktop applications (rofi, polybar)..."
@@ -277,28 +277,3 @@ echo "Installations completed successfully."
 # fi
 
 # echo "Nerd Fonts installation completed successfully."
-
-
-######################## CONFIGURATION FILES #################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

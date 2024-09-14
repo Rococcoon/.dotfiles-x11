@@ -20,7 +20,7 @@ case $chosen in
         systemctl reboot
         ;;
     $lock)
-        i3lock
+        i3lock -i ~/.wallpapers/sakura-rose-blur.png
         ;;
     $suspend)
         systemctl suspend
