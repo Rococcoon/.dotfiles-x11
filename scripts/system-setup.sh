@@ -100,7 +100,7 @@ fi
 
 # Install Wifi Utilities
 echo "Installing Wifi utilities..."
-if ! sudo apt install -y network-manager; then
+if ! sudo apt install -y network-manager --no-install-recommends; then
   echo "Failed to install Wifi utilities"
   exit 1
 fi
@@ -264,29 +264,6 @@ print_message "Applying changes..."
 source ~/.bashrc
 
 print_message "Oh My Bash installation and configuration complete!"
-
-# Install Desktop Manager (sddm)
-# Install SDDM without Plasma dependencies
-echo "Installing SDDM with no extra Plasma components..."
-sudo apt install --no-install-recommends sddm -y
-echo "Installing necessary Qt modules for themes..."
-sudo apt install --no-install-recommends \
-  qml-module-qtquick-layouts qml-module-qtquick-controls2 libqt6svg6 -y
-echo "Setting SDDM as the default display manager..."
-sudo systemctl enable sddm
-# Install ctppuccin-mocha theme
-THEME_DIR="/usr/share/sddm/themes/catppuccin-mocha"
-if [ -d "$THEME_DIR" ]; then
-    echo "Configuring SDDM to use Catppuccin-Mocha theme..."
-    sudo sed -i 's/^Current=.*/Current=catppuccin-mocha/' /etc/sddm.conf
-else
-    echo \
-      "The Catppuccin-Mocha theme is not installed. You can install it manually."
-fi
-# Restart SDDM to apply changes
-echo "Restarting SDDM..."
-sudo systemctl restart sddm
-echo "SDDM installation and configuration is complete."
 
 ############################### FONTS #####################################
 
