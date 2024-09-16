@@ -14,6 +14,7 @@ remove_existing() {
 }
 
 # Remove existing configurations
+remove_existing ~/.bashrc
 remove_existing ~/.config/alacritty
 remove_existing ~/.config/i3
 remove_existing ~/.config/nvim
@@ -29,6 +30,11 @@ remove_existing ~/.tmux
 remove_existing ~/.wallpapers
 
 # Configuration Files Symlinking
+
+# bash
+ln -sf ~/Rices/ScarletRice1/config/bash/bashrc ~/.bashrc
+echo "Old Alacritty config removed and symlink created."
+
 
 # Alacritty
 ln -sf ~/Rices/ScarletRice1/config/alacritty ~/.config/
