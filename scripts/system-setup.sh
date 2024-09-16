@@ -210,14 +210,14 @@ if ! curl -L -o nvim.appimage \
   echo "Failed to download Neovim AppImage"
   exit 1
 fi
-# Make the AppImage executable
-if ! chmod +x nvim.appimage; then
-  echo "Failed to make Neovim AppImage executable"
-  exit 1
-fi
 # Move the AppImage to a directory in PATH (e.g., /usr/local/bin)
 if ! sudo mv nvim.appimage /usr/local/bin/nvim; then
   echo "Failed to move Neovim AppImage to /usr/local/bin"
+  exit 1
+fi
+# Make the AppImage executable
+if ! chmod +x /usr/local/bin/nvim; then
+  echo "Failed to make Neovim AppImage executable"
   exit 1
 fi
 # Install ripgrep for telescope
