@@ -32,52 +32,52 @@ remove_existing ~/.wallpapers
 # Configuration Files Symlinking
 
 # bash
-ln -sf ~/Rices/ScarletRice1/config/bash/bashrc ~/.bashrc
+ln -sf ~/.dotfiles/ScarletRice01/config/bash/bashrc ~/.bashrc
 echo "Old Alacritty config removed and symlink created."
 
 
 # Alacritty
-ln -sf ~/Rices/ScarletRice1/config/alacritty ~/.config/
+ln -sf ~/.dotfiles/ScarletRice01/config/alacritty ~/.config/
 echo "Old Alacritty config removed and symlink created."
 
 # i3
-ln -sf ~/Rices/ScarletRice1/config/i3 ~/.config
+ln -sf ~/.dotfiles/ScarletRice01/config/i3 ~/.config
 echo "Old i3 config removed and symlink created."
 
 # Neovim
-ln -sf ~/Rices/ScarletRice1/config/nvim ~/.config
+ln -sf ~/.dotfiles/ScarletRice01/config/nvim ~/.config
 echo "Old Neovim config removed and symlink created."
 
 # Neovim backup
-ln -sf ~/Rices/ScarletRice1/config/nvim.bak ~/.config
+ln -sf ~/.dotfiles/ScarletRice01/config/nvim.bak ~/.config
 echo "Old Neovim backup config removed and symlink created."
 
 # Picom
-ln -sf ~/Rices/ScarletRice1/config/picom ~/.config
+ln -sf ~/.dotfiles/ScarletRice01/config/picom ~/.config
 echo "Old Picom backup config removed and symlink created."
 
 # Polybar
-ln -sf ~/Rices/ScarletRice1/config/polybar ~/.config
+ln -sf ~/.dotfiles/ScarletRice01/config/polybar ~/.config
 echo "Old Polybar backup config removed and symlink created."
 
 # Ranger
-ln -sf ~/Rices/ScarletRice1/config/ranger ~/.config
+ln -sf ~/.dotfiles/ScarletRice01/config/ranger ~/.config
 echo "Old Ranger backup config removed and symlink created."
 
 # Rofi
-ln -sf ~/Rices/ScarletRice1/config/rofi ~/.config
+ln -sf ~/.dotfiles/ScarletRice01/config/rofi ~/.config
 echo "Old Rofi backup config removed and symlink created."
 
 # Vim
-ln -sf ~/Rices/ScarletRice1/config/vim/vimrc ~/.vimrc
+ln -sf ~/.dotfiles/ScarletRice01/config/vim/vimrc ~/.vimrc
 echo "Old vim config removed and symlink created."
 
 # Wallpaper
-ln -sf ~/Rices/ScarletRice1/wallpapers/ ~/.wallpapers
+ln -sf ~/.dotfiles/ScarletRice01/wallpapers/ ~/.wallpapers
 echo "Old vim config removed and symlink created."
 
 # Tmux
-ln -sf ~/Rices/ScarletRice1/config/tmux/tmux.conf ~/.tmux.conf
+ln -sf ~/.dotfiles/ScarletRice01/config/tmux/tmux.conf ~/.tmux.conf
 echo "Old tmux.conf removed and symlink created."
 
 # Clone TPM (Tmux Plugin Manager) if not already installed

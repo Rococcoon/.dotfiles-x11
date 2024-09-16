@@ -193,6 +193,15 @@ if ! sudo apt install -y brave-browser; then
   exit 1
 fi
 
+# Install fuse for AppImage launch
+echo "Installing FUSE..."
+if sudo apt install fuse -y; then
+  echo "FUSE installed successfully."
+else
+  echo "Failed to install FUSE. Please check your package manager and try again."
+  exit 1
+fi
+
 # Install Text Editor (nvim)
 echo "Installing Neovim..."
 # Download the Neovim AppImage

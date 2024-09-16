@@ -2,33 +2,32 @@
 
 # Set up script for fonts
 # By: LBRM
-# Run the script as root user
 
-Define source and destination directories
-SOURCE_DIR="$HOME/.dotfiles/ScarletRice1/fonts"
-DEST_DIR="$HOME/.local/share/fonts"
+# Define font directory and font URLs
+FONT_DIR="$HOME/.local/share/fonts"
+MONONOKI_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Mononoki.zip"
+SYMBOLS_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Symbols.zip"
+MONONOKI_ZIP="$FONT_DIR/Mononoki.zip"
+SYMBOLS_ZIP="$FONT_DIR/Symbols.zip"
 
-Check if source directory exists
-if [ ! -d "$SOURCE_DIR" ]; then
-  echo "Source directory $SOURCE_DIR does not exist."
-  exit 1
-fi
+# Create font directory if it doesn't exist
+mkdir -p "$FONT_DIR"
 
-# Create destination directory if it doesn't exist
-mkdir -p "$DEST_DIR"
+# Download the Mononoki Nerd Font
+curl -fLo "$MONONOKI_ZIP" "$MONONOKI_URL"
 
-Copy fonts to destination directory, including subdirectories
-echo "Copying fonts from $SOURCE_DIR to $DEST_DIR..."
-if ! rsync -av "$SOURCE_DIR/" "$DEST_DIR/"; then
-  echo "Failed to copy fonts."
-  exit 1
-fi
+# Download the Symbols Nerd Font
+curl -fLo "$SYMBOLS_ZIP" "$SYMBOLS_URL"
 
-Update font cache
-echo "Updating font cache..."
-if ! fc-cache -fv; then
-  echo "Failed to update font cache."
-  exit 1
-fi
+# Extract the downloaded fonts
+unzip -o "$MONONOKI_ZIP" -d "$FONT_DIR"
+unzip -o "$SYMBOLS_ZIP" -d "$FONT_DIR"
 
-echo "Nerd Fonts installation completed successfully."
+# Remove the zip files after extraction
+rm "$MONONOKI_ZIP"
+rm "$SYMBOLS_ZIP"
+
+# Refresh the font cache
+fc-cache -fv
+
+echo "Mononoki and Symbols Nerd Fonts installed successfully."
