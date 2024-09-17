@@ -188,6 +188,10 @@ font:
     # Available options: None, Slight, Full
     hinting: Full
 
+    # Add fall back to try and get symbols to work
+    fallback:
+      - "NerFontsSymbolsOnly"
+
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 

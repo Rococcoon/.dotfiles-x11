@@ -6,7 +6,7 @@
 # Define font directory and font URLs
 FONT_DIR="$HOME/.local/share/fonts"
 MONONOKI_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Mononoki.zip"
-SYMBOLS_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/Symbols.zip"
+SYMBOLS_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/NerdFontsSymbolsOnly.zip"
 FONT_AWESOME_URL="https://use.fontawesome.com/releases/v5.15.4/fontawesome-free-5.15.4-desktop.zip"
 MONONOKI_ZIP="$FONT_DIR/Mononoki.zip"
 SYMBOLS_ZIP="$FONT_DIR/Symbols.zip"
