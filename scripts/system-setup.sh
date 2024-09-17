@@ -98,6 +98,13 @@ if ! sudo apt install -y bluetooth bluez; then
   exit 1
 fi
 
+# Install Brightness Utilities
+echo "Installing Bluetooth utilities..."
+if ! sudo apt install -y brightnessctl; then
+  echo "Failed to install Bluetooth utilities"
+  exit 1
+fi
+
 # Install Wifi Utilities
 echo "Installing Wifi utilities..."
 if ! sudo apt install -y network-manager --no-install-recommends; then
