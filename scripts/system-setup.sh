@@ -99,9 +99,9 @@ if ! sudo apt install -y bluetooth bluez; then
 fi
 
 # Install Brightness Utilities
-echo "Installing Bluetooth utilities..."
+echo "Installing Brightness utilities..."
 if ! sudo apt install -y brightnessctl; then
-  echo "Failed to install Bluetooth utilities"
+  echo "Failed to install Brightness utilities"
   exit 1
 fi
 
@@ -158,6 +158,13 @@ fi
 echo "Installing image editors (Inkscape, GIMP)..."
 if ! sudo apt install -y gimp inkscape; then
   echo "Failed to install Inkscape and GIMP"
+  exit 1
+fi
+
+# Install TUI applications
+echo "Installing audio utilities (pulseaudio)..."
+if ! sudo apt install -y calcurse; then
+  echo "Failed to install TUI applications"
   exit 1
 fi
 
