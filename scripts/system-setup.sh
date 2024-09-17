@@ -79,7 +79,7 @@ fi
 
 # Install Monitoring Tool
 echo "Installing monitoring tools..."
-if ! sudo apt install -y sysstat htop; then
+if ! sudo apt install -y sysstat htop upower; then
   echo "Failed to install monitoring tools"
   exit 1
 fi
