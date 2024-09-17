@@ -47,7 +47,7 @@ mainbox {
 
 /*****----- prompt -----*****/
 prompt {
-    background-image:            url("~/Pictures/Wallpapers/rose-colden.png", width);
+    background-image:            url("~/.wallpapers/rose-colden.png", width);
     background-color:            @background;
     text-color:                  @selected;
     font:                        "Mononoki Bold 30";
