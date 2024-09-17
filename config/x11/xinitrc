@@ -1,0 +1,4 @@
+# Config for xinit
+
+# Start up i3 on startx
+exec i3

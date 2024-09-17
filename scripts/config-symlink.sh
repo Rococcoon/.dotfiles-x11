@@ -28,6 +28,7 @@ remove_existing ~/.vim
 remove_existing ~/.tmux.conf
 remove_existing ~/.tmux
 remove_existing ~/.wallpapers
+remove_existing ~/.xinitrc
 
 # Configuration Files Symlinking
 
@@ -74,7 +75,11 @@ echo "Old vim config removed and symlink created."
 
 # Wallpaper
 ln -sf ~/.dotfiles/ScarletRice01/wallpapers/ ~/.wallpapers
-echo "Old vim config removed and symlink created."
+echo "Old wallpaper removed and symlink created."
+
+# Xinit
+ln -sf ~/.dotfiles/ScarletRice01/config/x11/xinitrc ~/.xinitrc
+echo "Old xinitrc removed and symlink created."
 
 # Tmux
 ln -sf ~/.dotfiles/ScarletRice01/config/tmux/tmux.conf ~/.tmux.conf
