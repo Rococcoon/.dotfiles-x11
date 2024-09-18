@@ -71,11 +71,11 @@ if ! sudo apt install -y feh; then
 fi
 
 # Install AMD graphics drivers and necessary firmware for Asus rx 580
-# echo "Installing AMD graphics drivers and firmware..."
-# if ! sudo apt install -y mesa-utils xserver-xorg-video-amdgpu firmware-amd-graphics; then
-  # echo "Failed to install AMD graphics drivers and firmware"
-  # exit 1
-# fi
+echo "Installing AMD graphics drivers and firmware..."
+if ! sudo apt install -y mesa-utils xserver-xorg-video-amdgpu firmware-amd-graphics; then
+  echo "Failed to install AMD graphics drivers and firmware"
+  exit 1
+fi
 
 # Install Monitoring Tool
 echo "Installing monitoring tools..."
