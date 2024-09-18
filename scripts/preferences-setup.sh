@@ -13,6 +13,13 @@ Section "InputClass"
     Driver "libinput"
     Option "NaturalScrolling" "true"
 EndSection
+
+Section "InputClass"
+    Identifier "My Mouse"
+    MatchIsPointer "on"
+    Driver "libinput"
+    Option "NaturalScrolling" "true"
+EndSection
 EOF
 
 # Inform the user and restart X session to apply changes
