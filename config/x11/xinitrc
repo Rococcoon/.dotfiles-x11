@@ -1,4 +1,2 @@
-# Config for xinit
-
-# Start up i3 on startx
+setxkbmap -option caps:esc
 exec i3
