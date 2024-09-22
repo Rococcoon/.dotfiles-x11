@@ -25,14 +25,14 @@ vim.opt.scrolloff = 11
 vim.opt.completeopt = "menuone,noinsert,noselect"
 
 -- Add transparency where desired
-vim.cmd([[
-	hi Normal guibg=NONE ctermbg=NONE
-	hi NormalNC guibg=NONE ctermbg=NONE
-	hi NormalSB guibg=NONE ctermbg=NONE
-	hi NormalFloat guibg=NONE ctermbg=NONE
-	hi FloatBorder guibg=NONE ctermbg=NONE
-	hi SignColumn guibg=NONE ctermbg=NONE
-]])
+-- vim.cmd([[
+	-- hi Normal guibg=NONE ctermbg=NONE
+	-- hi NormalNC guibg=NONE ctermbg=NONE
+	-- hi NormalSB guibg=NONE ctermbg=NONE
+	-- hi NormalFloat guibg=NONE ctermbg=NONE
+	-- hi FloatBorder guibg=NONE ctermbg=NONE
+	-- hi SignColumn guibg=NONE ctermbg=NONE
+-- ]])
 
 -- Behavior
 vim.opt.hidden = true -- Hide buffer when abandoned

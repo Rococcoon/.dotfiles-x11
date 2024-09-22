@@ -29,6 +29,7 @@ remove_existing ~/.tmux.conf
 remove_existing ~/.tmux
 remove_existing ~/.wallpapers
 remove_existing ~/.xinitrc
+remove_existing ~/.Xmodmap
 
 # Configuration Files Symlinking
 
@@ -80,6 +81,10 @@ echo "Old wallpaper removed and symlink created."
 # Xinit
 ln -sf ~/.dotfiles/ScarletRice01/config/x11/xinitrc ~/.xinitrc
 echo "Old xinitrc removed and symlink created."
+
+# Xmodmap
+ln -sf ~/.dotfiles/ScarletRice01/config/xmodmap/Xmodmap ~/.Xmodmap
+echo "Old xmodmap removed and symlink created."
 
 # Tmux
 ln -sf ~/.dotfiles/ScarletRice01/config/tmux/tmux.conf ~/.tmux.conf
