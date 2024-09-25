@@ -28,8 +28,12 @@ return {
   {
     "williamboman/mason.nvim",
     opts = {
-      "gopls",
+      ensure_installed = {
+        "gopls",
+        "typescript-language-server",
+        "css-lsp",
+        "html-lsp"
+      },
     },
   },
-
 }

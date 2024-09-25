@@ -2,15 +2,16 @@ local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     golang = { "gofmt" },
+    javascript = { "" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
 
-  -- format_on_save = {
+  format_on_save = {
   --   -- These options will be passed to conform.format()
-  --   timeout_ms = 500,
-  --   lsp_fallback = true,
-  -- },
+    timeout_ms = 500,
+    lsp_fallback = true,
+  },
 }
 
 return options

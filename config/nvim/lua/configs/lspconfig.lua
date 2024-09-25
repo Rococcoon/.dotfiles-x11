@@ -42,3 +42,58 @@ lspconfig.gopls.setup {
     },
   },
 }
+
+-- Configure LSP for Javascript (ts_ls)
+lspconfig.ts_ls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  filetypes = { "Javascript" },
+  root_dir = util.root_pattern("package.json", ".git"),
+  settings = {
+    javascript = {
+      format = {
+        enable = true,
+      },
+      lint = true,
+    },
+  },
+}
+
+-- Configure LSP for CSS (css-lsp)
+lspconfig.cssls.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  filetypes = { "css", "scss", "less" },
+  root_dir = lspconfig.util.root_pattern(".git", "package.json"),
+  settings = {
+    css = {
+      validate = true,
+    },
+    scss = {
+      validate = true,
+    },
+    less = {
+      validate = true,
+    },
+  },
+}
+
+
+-- Configure LSP for HTML (html-lsp)
+lspconfig.html.setup {
+  on_attach = nvlsp.on_attach,
+  on_init = nvlsp.on_init,
+  capabilities = nvlsp.capabilities,
+  filetypes = { "html" },
+  root_dir = lspconfig.util.root_pattern(".git", "package.json"),
+  settings = {
+    html = {
+      format = {
+        enable = true,
+      },
+      validate = true,
+    },
+  },
+}
