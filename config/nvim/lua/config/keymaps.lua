@@ -12,11 +12,29 @@ end, { noremap = true, silent = true })
 
 --NAVIGATION IN TEXT EDITOR COMMANDS --
 -- Set goto end of line to gl
-vim.keymap.set("n", "gl", "$", { noremap = true, silent = true })
-vim.keymap.set("v", "gl", "$h", { noremap = true, silent = true })
+vim.keymap.set("n", "g;", "$", { noremap = true, silent = true })
+vim.keymap.set("v", "g;", "$h", { noremap = true, silent = true })
 -- Set goto start of line to gh
-vim.keymap.set("n", "gh", "0", { noremap = true, silent = true })
-vim.keymap.set("v", "gh", "0", { noremap = true, silent = true })
+vim.keymap.set("n", "gj", "0", { noremap = true, silent = true })
+vim.keymap.set("v", "gj", "0", { noremap = true, silent = true })
+-- Set goto top of fie to gl
+vim.keymap.set("n", "gl", "gg", { noremap = true, silent = true })
+vim.keymap.set("v", "gl", "gg", { noremap = true, silent = true })
+-- Set goto bottom of file to gk
+vim.keymap.set("n", "gk", "G", { noremap = true, silent = true })
+vim.keymap.set("v", "gk", "G", { noremap = true, silent = true })
+
+-- Normal mode remaps
+vim.keymap.set("n", "j", "h", { noremap = true, silent = true })
+vim.keymap.set("n", "k", "j", { noremap = true, silent = true })
+vim.keymap.set("n", "l", "k", { noremap = true, silent = true })
+vim.keymap.set("n", ";", "l", { noremap = true, silent = true })
+
+-- Visual mode remaps
+vim.keymap.set("v", "j", "h", { noremap = true, silent = true })
+vim.keymap.set("v", "k", "j", { noremap = true, silent = true })
+vim.keymap.set("v", "l", "k", { noremap = true, silent = true })
+vim.keymap.set("v", ";", "l", { noremap = true, silent = true })
 
 -- Close Window
 vim.api.nvim_set_keymap('n', '<leader>q', ':q<CR>', 
@@ -72,9 +90,12 @@ vim.api.nvim_set_keymap("n", "<Leader>9", ":tabnext 9<CR>",
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- cut text to new lines at 80, parse text
--- vim.keymap.set("v", "<leader>pt", ":'<,'>s/.\\{80}/&\\r/g<CR>", 
---  { noremap = true, silent = true })
+-- Remap redo to "U"
+vim.api.nvim_set_keymap('n', 'U', '<C-r>', { noremap = true, silent = true })
+
+-- cut text to new lines at 80, format text
+-- vim.keymap.set("v", "<leader>ft", ":'<,'>s/.\\{80}/&\\r/g<CR>", 
+-- { noremap = true, silent = true })
 
 -- Comment plugin
 vim.api.nvim_set_keymap("n", "<leader>ac", "gcc", { noremap = false })
@@ -85,7 +106,7 @@ vim.api.nvim_set_keymap("v", "<leader>bc", "gbc", { noremap = false })
 -- work around to format on save for javascript
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>jsf",
+	"<leader>fjs",
 	":!npx semistandard --fix %<CR>:set autoread<<CR>",
 	{ noremap = true, silent = true }
 )
