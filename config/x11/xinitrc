@@ -1,2 +1,13 @@
+# Run while starting x11
+
+# Switch caps lock to escape
 setxkbmap -option caps:esc
+
+# Set up wifi for NetworkManager
+sudo systemctl stop wpa_supplicant
+sudo systemctl disable wpa_supplicant
+sudo systemctl restart NetworkManager
+sudo nmcli device set wlp3s0 managed yes
+
+# Start i3 window manager
 exec i3
