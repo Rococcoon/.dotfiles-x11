@@ -1,2 +1,3 @@
-require('config')
-require('lsp')
+require("config")
+require("lsp")
+require("formatter")
