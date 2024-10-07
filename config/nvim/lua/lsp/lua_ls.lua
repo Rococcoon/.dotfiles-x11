@@ -1,35 +1,40 @@
--- CONFIGURE LUA LANGUAGE SERVER
+-- Update this with the actual path to the Lua language server
+local lsp_path = '/home/lulu/lsp/lua-language-server/bin/lua-language-server'
 
--- ~/.config/nvim/lua/lsp/lua_ls.lua
+-- Command to start the Lua Language Server
+local cmd = { lsp_path }
 
--- Update this with the actual path to lua-language-server
-local lsp_path = "/path/to/lua-language-server"  
-
--- You can find out the command to start the server 
--- by referring to the lua-language-server documentation
-local cmd = { lsp_path .. "/bin/Linux/lua-language-server", 
-  "-E", lsp_path .. "/main.lua" }
-
--- Start the Lua LSP server
-vim.lsp.start({
-  name = "lua-language-server",
-  cmd = cmd,
-  root_dir = vim.fn.getcwd(),
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        globals = { 'vim' },  -- Recognize Neovim's global 'vim'
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+vim.api.nvim_create_autocmd('FileType', {
+  -- This handler will fire when the buffer's 'filetype' is "python"
+  pattern = 'lua',
+  callback = function(args)
+    vim.lsp.start({
+      name = 'lua-language-server',
+      cmd = cmd,
+      -- Set the "root directory" to the parent directory of the file in the
+      -- current buffer (`args.buf`) that contains either a "setup.py" or a
+      -- "pyproject.toml" file. Files that share a root directory will reuse
+      -- the connection to the same LSP server.
+      root_dir = vim.fs.root(args.buf, {'init.lua', '.git'}),
+      -- Lua language-specific settings
+      settings = {
+        Lua = {
+          runtime = {
+            version = 'LuaJIT',
+            path = vim.split(package.path, ';'),
+          },
+          diagnostics = {
+            -- Recognize Neovim's 'vim' global
+            globals = { 'vim' },
+          },
+          workspace = {
+            library = {
+              [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+              [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+            },
+          },
         },
       },
-    },
-  },
+    })
+  end,
 })

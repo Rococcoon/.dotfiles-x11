@@ -22,13 +22,13 @@ vim.keymap.set("n", "<leader>sv", ":vsplit<CR>",
   { noremap = true, silent = true })
 
 -- Pane navigation
-vim.keymap.set("n", "<C-h>", "<C-w>h", 
+vim.keymap.set("n", "<leader>wj", "<C-w>h", 
   { noremap = true, silent = true }) -- navigate left
-vim.keymap.set("n", "<C-j>", "<C-w>j", 
+vim.keymap.set("n", "<leader>wk", "<C-w>j", 
   { noremap = true, silent = true }) -- navigate down
-vim.keymap.set("n", "<C-k>", "<C-w>k", 
+vim.keymap.set("n", "<leader>wl", "<C-w>k", 
   { noremap = true, silent = true }) -- navigate up
-vim.keymap.set("n", "<C-l>", "<C-w>l", 
+vim.keymap.set("n", "<leader>w;", "<C-w>l", 
   { noremap = true, silent = true }) -- navigate right
 
 -- map keys for numeric navigation between tabs

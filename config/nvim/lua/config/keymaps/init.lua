@@ -3,3 +3,4 @@
 require('config.keymaps.motions')
 require('config.keymaps.navigation')
 require('config.keymaps.commands')
+require('config.keymaps.lsp')
