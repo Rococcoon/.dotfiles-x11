@@ -1,5 +1,6 @@
 -- Update this with the actual path to the Lua language server
-local lsp_path = '/home/lulu/lsp/lua-language-server/bin/lua-language-server'
+local lsp_path = '/usr/local/bin/lua-lsp'
+
 
 -- Command to start the Lua Language Server
 local cmd = { lsp_path }
