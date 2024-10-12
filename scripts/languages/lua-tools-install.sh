@@ -27,45 +27,39 @@ install_stylua() {
 # Run the installation function
 install_stylua
 
-# Install lua-language-server
-#
-# Function to install dependencies
-install_dependencies() {
-    echo "Installing dependencies..."
-    # Adjust this command according to your system
-    sudo apt install -y git cmake gcc g++ make
-}
-
-# Function to install the Lua Language Server from source
+# Function to install Lua Language Server from source
 install_lua_language_server() {
-    echo "Cloning the Lua Language Server repository..."
+    # Clone the repository
     git clone https://github.com/sumneko/lua-language-server.git
 
-    echo "Building the Lua Language Server..."
+    # Navigate to the source directory
     cd lua-language-server
 
-    echo "Initializing submodules..."
-    git submodule update --init
+    # Check if CMakeLists.txt exists
+    if [ ! -f "CMakeLists.txt" ]; then
+        echo "Error: CMakeLists.txt not found in the source directory."
+        exit 1
+    fi
 
+    # Create a build directory
     mkdir -p build
     cd build
-    cmake .. -DCMAKE_BUILD_TYPE=Release
+
+    # Run CMake to configure the project
+    cmake ..
+    
+    # Build the project
     make
 
-    echo "Installing Lua Language Server..."
+    # Install binaries
     sudo cp -r bin/* /usr/local/bin/
 
     # Clean up
     cd ../../
     rm -rf lua-language-server
 
-    echo "Lua Language Server has been successfully installed."
+    echo "Lua Language Server has been installed successfully."
 }
-
-# Check for dependencies (install if missing)
-if ! command -v git &> /dev/null || ! command -v cmake &> /dev/null || ! command -v gcc &> /dev/null || ! command -v make &> /dev/null; then
-    install_dependencies
-fi
 
 # Run the installation function
 install_lua_language_server
