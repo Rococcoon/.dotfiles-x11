@@ -3,30 +3,6 @@
 # Exit the script if any command fails
 set -e
 
-# Function to install Stylua using Cargo
-install_stylua() {
-    # Check if Cargo is installed
-    if ! command -v cargo &> /dev/null; then
-        echo "Cargo is not installed. Please install Rust and Cargo first."
-        exit 1
-    fi
-
-    # Install Stylua
-    echo "Installing/Updating Stylua..."
-    cargo install stylua
-
-    # Verify installation
-    if command -v stylua &> /dev/null; then
-        echo "Stylua has been successfully installed or updated."
-    else
-        echo "Failed to install Stylua."
-        exit 1
-    fi
-}
-
-# Run the Stylua installation function
-install_stylua
-
 # Install or update lua-language-server
 
 # Function to check if Lua Language Server is installed
@@ -85,13 +61,16 @@ install_or_update_lua_language_server() {
     # Navigate to the source directory
     cd lua-language-server
 
-    # Build the build tool (luamake)
-    cd 3rd/luamake
-    ./compile/install.sh
+    # # Build the build tool (luamake)
+    # cd 3rd/luamake
+    # ./compile/install.sh
+    #
+    # # Go back to the main directory and use luamake to build the server
+    # cd ../..
+    # ./3rd/luamake/luamake rebuild
 
-    # Go back to the main directory and use luamake to build the server
-    cd ../..
-    ./3rd/luamake/luamake rebuild
+    # Build
+    ./make.sh
 
     # Copy the output binary files to a system-wide directory
     sudo cp -r bin/* /usr/local/bin/
