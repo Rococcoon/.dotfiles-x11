@@ -75,8 +75,8 @@ function M.open_buffer_list()
 	local content_height = height - header_height -- Remaining height for the content window
 
 	-- Adjust width distribution for the two windows
-	local list_width = math.ceil(width * 0.5) -- Adjusted to 50% of the total width for the file list
-	local content_width = width - list_width -- Remaining width for the content window
+	local list_width = math.ceil(width * 0.5) - 1 -- Adjusted to 50% of the total width for the file list
+	local content_width = width - list_width - 1 -- Remaining width for the content window
 
 	-- Create a floating window for the header
 	local header_win_id = vim.api.nvim_open_win(header_buf, true, {

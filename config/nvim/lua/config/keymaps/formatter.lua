@@ -15,3 +15,11 @@ vim.api.nvim_set_keymap(
 	":!npx semistandard --fix %<CR>:set autoread<<CR>",
 	{ noremap = true, silent = true }
 )
+
+-- Set up a keybinding to format the current file using Prettier
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fp",  -- You can choose a different key combination if you'd like
+	':lua require("formatter.prettier").format()<CR>',
+	{ noremap = true, silent = true }
+)
