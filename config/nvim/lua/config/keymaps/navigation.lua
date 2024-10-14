@@ -12,8 +12,8 @@ vim.api.nvim_set_keymap("n", "<leader>p", ":bprevious<CR>", { noremap = true, si
 vim.api.nvim_set_keymap("n", "<leader>n", ":bnext<CR>", { noremap = true, silent = true })
 
 -- Split pane shortcut
-vim.keymap.set("n", "<leader>sh", ":split<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>wh", ":split<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>wv", ":vsplit<CR>", { noremap = true, silent = true })
 
 -- Pane navigation
 vim.keymap.set("n", "<leader>wj", "<C-w>h", { noremap = true, silent = true }) -- navigate left
