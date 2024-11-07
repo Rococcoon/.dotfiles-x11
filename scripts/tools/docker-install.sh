@@ -51,6 +51,21 @@ add_user_to_docker_group() {
 EONG
 }
 
+# Function to install standalone Docker Compose (if desired)
+install_standalone_docker_compose() {
+  echo "Installing standalone Docker Compose..."
+
+  # Download the latest version of Docker Compose
+  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+  # Make Docker Compose executable
+  sudo chmod +x /usr/local/bin/docker-compose
+
+  # Verify installation
+  docker-compose --version
+  echo "Standalone Docker Compose installed successfully."
+}
+
 # Main script logic
 echo "Checking for Docker installation..."
 
@@ -61,6 +76,14 @@ if ! command -v docker &> /dev/null; then
 else
   echo "Docker is already installed. Updating Docker..."
   update_docker
+fi
+
+# Check if standalone Docker Compose is installed
+if ! command -v docker-compose &> /dev/null; then
+  echo "Docker Compose (standalone) not found. Installing standalone Docker Compose..."
+  install_standalone_docker_compose
+else
+  echo "Docker Compose (standalone) is already installed."
 fi
 
 echo "Docker setup and update completed successfully."

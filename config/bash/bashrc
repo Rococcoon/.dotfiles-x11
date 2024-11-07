@@ -161,3 +161,4 @@ export NVM_DIR="$HOME/.nvm"
 . "$HOME/.cargo/env"
 
 alias luamake="/home/lulu/.dotfiles/ScarletRice01/scripts/languages/lua-language-server/3rd/luamake/luamake"
+export PATH="$HOME/.local/opt/go/bin:$PATH"
