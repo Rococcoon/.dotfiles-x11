@@ -47,7 +47,7 @@ ln -sf ~/.dotfiles-x11/config/i3 ~/.config
 echo "Old i3 config removed and symlink created."
 
 # Neovim
-ln -sf ~/.dotfiles-x11/config/nvim ~/.config
+ln -sf ~/Rococcoon/nvim-chad ~/.config/nvim
 echo "Old Neovim config removed and symlink created."
 
 # Neovim backup

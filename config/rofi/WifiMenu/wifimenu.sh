@@ -1,4 +1,6 @@
-#!/bin/bash
+/#!/bin/bash
+
+rofi_command="rofi -theme .config/rofi/WifiMenu/wifimenu.rasi"
 
 # Function to toggle WiFi on/off
 toggle_wifi() {

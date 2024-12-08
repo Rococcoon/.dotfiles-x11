@@ -1,5 +1,5 @@
 /* Define the theme */
-/* @theme "wifimenu"; */
+@theme "wifimenu";
 
 /*****----- Global Properties -----*****/
 * {
